@@ -994,7 +994,7 @@ Answer the seeker's follow-up question in first person, fully in character. Keep
                 </div>
               </div>
               <p className="mt-12 text-[#cfb53b] font-heading text-sm tracking-[0.3em] uppercase animate-pulse">
-                The cards are being chosen...
+                The cards are being shuffled...
               </p>
             </div>
           )}
