@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Send, RotateCcw, Loader, Crown } from 'lucide-react';
+import { Send, RotateCcw, Loader, Crown, X } from 'lucide-react';
 
 // --- STYLES ---
 const RENAISSANCE_STYLES = `
@@ -77,6 +77,12 @@ const RENAISSANCE_STYLES = `
     animation: card-shuffle 2.4s ease-in-out forwards;
     transform-origin: center bottom;
   }
+
+  @keyframes gallery-in {
+    from { opacity: 0; transform: translateY(16px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .animate-gallery-in { animation: gallery-in 0.3s ease-out forwards; }
 
   @keyframes cartomancer-float {
     0%, 100% { transform: scaleX(-1) translateY(0px); }
@@ -522,6 +528,8 @@ export default function RenaissanceTarotBoard() {
   const [activeSpeakerId, setActiveSpeakerId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [verbosity, setVerbosity] = useState(3);
+  const [showGallery, setShowGallery] = useState(false);
+  const [galleryCard, setGalleryCard] = useState(null);
 
   const sessionRef = useRef(0);
   const logEndRef = useRef(null);
@@ -897,8 +905,14 @@ Answer the seeker's follow-up question in first person, fully in character. Keep
             />
           </div>
 
-          {/* Reset */}
-          <div className="absolute top-10 right-10 z-10">
+          {/* Top-right controls */}
+          <div className="absolute top-10 right-10 z-10 flex items-center gap-2">
+            <button
+              onClick={() => { setGalleryCard(null); setShowGallery(true); }}
+              className="text-[#8b4513] hover:text-[#cfb53b] px-3 py-1.5 border border-[#8b4513] rounded hover:border-[#cfb53b] transition-colors font-heading text-[10px] tracking-widest uppercase"
+            >
+              Galerie
+            </button>
             <button
               onClick={resetBoard}
               className="text-[#8b4513] hover:text-[#cfb53b] p-2 border border-[#8b4513] rounded hover:border-[#cfb53b] transition-colors"
@@ -906,6 +920,94 @@ Answer the seeker's follow-up question in first person, fully in character. Keep
               <RotateCcw className="w-4 h-4" />
             </button>
           </div>
+
+          {/* ── GALLERY MODAL ── */}
+          {showGallery && (
+            <div className="fixed inset-0 z-50 bg-black/90 flex flex-col" onClick={() => { if (!galleryCard) setShowGallery(false); }}>
+              <div className="animate-gallery-in flex flex-col h-full" onClick={e => e.stopPropagation()}>
+
+                {/* Modal header */}
+                <div className="flex items-center justify-between px-8 py-5 border-b border-[#8b4513]/40 flex-shrink-0">
+                  <div className="flex items-center gap-3">
+                    {galleryCard && (
+                      <button onClick={() => setGalleryCard(null)} className="text-[#8b4513] hover:text-[#cfb53b] transition-colors font-body text-sm mr-2">
+                        ← Back
+                      </button>
+                    )}
+                    <h2 className="font-heading text-[#cfb53b] text-xl tracking-widest uppercase">
+                      {galleryCard ? galleryCard.name : 'Galerie'}
+                    </h2>
+                    {!galleryCard && <span className="font-body text-[#8b4513] text-xs">{FULL_DECK.length} cards</span>}
+                  </div>
+                  <button onClick={() => setShowGallery(false)} className="text-[#8b4513] hover:text-[#cfb53b] transition-colors p-1">
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                {/* Grid view */}
+                {!galleryCard && (
+                  <div className="flex-1 overflow-y-auto scrollbar-antique p-8">
+                    <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))' }}>
+                      {FULL_DECK.map(card => (
+                        <button
+                          key={card.id}
+                          onClick={() => setGalleryCard(card)}
+                          className="group flex flex-col items-center gap-2 cursor-pointer"
+                        >
+                          <div className="w-full rounded border border-[#5c4033]/40 overflow-hidden group-hover:border-[#cfb53b] transition-colors">
+                            <img src={card.img} alt={card.name} className="w-full object-cover" style={{ aspectRatio: '2/3' }} />
+                          </div>
+                          <span className="font-body text-[#c4a46b] text-[9px] text-center leading-tight group-hover:text-[#cfb53b] transition-colors">
+                            {card.name}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Detail view */}
+                {galleryCard && (
+                  <div className="flex-1 overflow-y-auto scrollbar-antique p-8">
+                    <div className="max-w-2xl mx-auto flex gap-8">
+                      <div className="flex-shrink-0 w-44">
+                        <img src={galleryCard.img} alt={galleryCard.name} className="w-full rounded border border-[#8b4513]/50 shadow-2xl" />
+                      </div>
+                      <div className="flex-1 font-body text-[#c4a46b] space-y-4">
+                        <div>
+                          <span className="font-heading text-[9px] tracking-widest text-[#8b4513] uppercase block mb-1">Archetype</span>
+                          <p className="text-[#e8dfcc]">{galleryCard.archetype}</p>
+                        </div>
+                        <div>
+                          <span className="font-heading text-[9px] tracking-widest text-[#8b4513] uppercase block mb-1">Element</span>
+                          <p className="text-[#e8dfcc]">{galleryCard.element}</p>
+                        </div>
+                        {galleryCard.numerology && galleryCard.numerology !== 'Minor' && (
+                          <div>
+                            <span className="font-heading text-[9px] tracking-widest text-[#8b4513] uppercase block mb-1">Numerology</span>
+                            <p className="text-[#e8dfcc]">{galleryCard.numerology}</p>
+                          </div>
+                        )}
+                        <div>
+                          <span className="font-heading text-[9px] tracking-widest text-[#8b4513] uppercase block mb-1">Keywords</span>
+                          <p className="text-[#e8dfcc]">{galleryCard.keywords}</p>
+                        </div>
+                        <div>
+                          <span className="font-heading text-[9px] tracking-widest text-[#8b4513] uppercase block mb-1">Oracle</span>
+                          <p className="italic">{galleryCard.fortune_telling}</p>
+                        </div>
+                        <div>
+                          <span className="font-heading text-[9px] tracking-widest text-[#8b4513] uppercase block mb-1">Nature</span>
+                          <p className="italic leading-relaxed">{galleryCard.personality}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
 
           {/* ── INIT SCREEN ── */}
           {phase === 'init' && (
