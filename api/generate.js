@@ -1,6 +1,5 @@
 export default async function handler(req, res) {
-  // This Key is stored securely in Vercel Environment Variables
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.OPENAI_API_KEY;
 
   if (!apiKey) {
     return res.status(500).json({ error: "API Key missing on server." });
@@ -8,27 +7,24 @@ export default async function handler(req, res) {
 
   const { prompt, systemInstruction, useJson } = req.body;
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
-  
-  const generationConfig = {
-    temperature: 0.9,
-    maxOutputTokens: 4000,
-  };
-
-  if (useJson) {
-    generationConfig.responseMimeType = "application/json";
-  }
-
   const payload = {
-    contents: [{ parts: [{ text: prompt }] }],
-    systemInstruction: { parts: [{ text: systemInstruction }] },
-    generationConfig
+    model: 'gpt-4o-mini',
+    messages: [
+      { role: 'system', content: systemInstruction },
+      { role: 'user',   content: prompt }
+    ],
+    temperature: 0.9,
+    max_tokens: 4000,
+    ...(useJson && { response_format: { type: 'json_object' } }),
   };
 
   try {
-    const response = await fetch(url, {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
       body: JSON.stringify(payload)
     });
 
@@ -38,7 +34,7 @@ export default async function handler(req, res) {
     }
 
     const data = await response.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    const text = data.choices?.[0]?.message?.content;
     return res.status(200).json({ text });
 
   } catch (error) {
