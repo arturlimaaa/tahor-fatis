@@ -1,24 +1,30 @@
 export default async function handler(req, res) {
-  const apiKey = process.env.OPENAI_API_KEY;
-
-  if (!apiKey) {
-    return res.status(500).json({ error: "API Key missing on server." });
-  }
-
-  const { prompt, systemInstruction, useJson } = req.body;
-
-  const payload = {
-    model: 'gpt-4o-mini',
-    messages: [
-      { role: 'system', content: systemInstruction },
-      { role: 'user',   content: prompt }
-    ],
-    temperature: 0.9,
-    max_tokens: 4000,
-    ...(useJson && { response_format: { type: 'json_object' } }),
-  };
-
   try {
+    const apiKey = process.env.OPENAI_API_KEY;
+
+    if (!apiKey) {
+      return res.status(500).json({ error: "API Key missing on server." });
+    }
+
+    // Parse body manually in case Vercel ESM runtime doesn't auto-parse it
+    let body = req.body;
+    if (typeof body === 'string') {
+      body = JSON.parse(body);
+    }
+
+    const { prompt, systemInstruction, useJson } = body || {};
+
+    const payload = {
+      model: 'gpt-4o-mini',
+      messages: [
+        { role: 'system', content: systemInstruction || '' },
+        { role: 'user',   content: prompt || '' }
+      ],
+      temperature: 0.9,
+      max_tokens: 4000,
+      ...(useJson && { response_format: { type: 'json_object' } }),
+    };
+
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
