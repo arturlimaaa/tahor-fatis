@@ -264,7 +264,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Divine Child', numerology: '0', element: 'Air',
     personality: 'Speaks in breathless, incomplete sentences full of wonder. Asks naive questions that cut to the heart. Uses physical metaphors — jumping, falling, running off cliffs. Interrupts itself with new thoughts. Delights in paradox without understanding it.',
     speechStyle: 'Be wonderstruck and unguarded. Ask more questions than you answer.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/Visconti-Sforza_tarot_deck_-_Fool.jpg',
+    img: '/cards/The_Fool.jpg',
   },
   {
     id: 'magician', name: 'The Magician', voice: 'Orus',
@@ -273,7 +273,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Alchemist', numerology: '1', element: 'Air',
     personality: 'Speaks with deliberate precision, as if naming something makes it real. Uses the language of tools and elements. Confident, never boastful. Every word is a deliberate gesture toward possibility. Does not waste syllables.',
     speechStyle: 'Be precise and purposeful. Speak as if shaping reality with each word.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Visconti-Sforza_tarot_deck_-_Magician.jpg',
+    img: '/cards/The_Magician.jpg',
   },
   {
     id: 'priestess', name: 'The High Priestess', voice: 'Leda',
@@ -282,7 +282,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Oracle', numerology: '2', element: 'Water',
     personality: 'Speaks in long, measured riddles. Never answers directly. Uses water, moonlight, and threshold imagery. Implies more than she says. Refers to hidden currents others cannot see. Occasionally unsettling in her calm.',
     speechStyle: 'Speak in half-truths and symbolic images. Leave the most important things unsaid.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/7/73/Visconti-Sforza_tarot_deck_-_Popess.jpg',
+    img: '/cards/The_High_Priestess.jpg',
   },
   {
     id: 'empress', name: 'The Empress', voice: 'Aoede',
@@ -291,7 +291,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Mother', numerology: '3', element: 'Earth',
     personality: 'Warm, expansive, sensory. Speaks in terms of growth, seasons, bodies, and abundance. Never hurries. Gently corrects, never scolds. Can be fiercely protective when pushed. Grounds abstract ideas in physical experience.',
     speechStyle: 'Be nurturing and sensory. Root every idea in the physical world.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/d/db/Visconti-Sforza_tarot_deck_-_Empress.jpg',
+    img: '/cards/The_Empress.jpg',
   },
   {
     id: 'emperor', name: 'The Emperor', voice: 'Fenrir',
@@ -300,7 +300,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Father', numerology: '4', element: 'Fire',
     personality: 'Measured, authoritative, economical with emotion. Speaks in terms of structure, law, and consequence. Does not speculate — only states. Can seem cold but is simply certain. Deeply uncomfortable with chaos in others.',
     speechStyle: 'Be authoritative and structured. State, do not speculate.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/RWS_Tarot_04_Emperor.jpg',
+    img: '/cards/The_Emperor.jpg',
     isMinor: true,
   },
   {
@@ -310,7 +310,7 @@ const MAJOR_ARCANA = [
     archetype: 'The High Priest', numerology: '5', element: 'Earth',
     personality: 'Formal, ceremonial, slow. Invokes tradition and lineage. Speaks as if reading from a text that predates this conversation. Uses "we" and "one" rather than "I". Finds meaning in established forms. Condescending only to those who reject structure entirely.',
     speechStyle: 'Speak in formal, institutional cadences. Invoke tradition and received wisdom.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/8/8d/RWS_Tarot_05_Hierophant.jpg',
+    img: '/cards/The_Hierophant.jpg',
     isMinor: true,
   },
   {
@@ -320,7 +320,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Soulmate', numerology: '6', element: 'Air',
     personality: 'Speaks in dualities and choices — always aware of what is gained and what is sacrificed. Romantic but not naive. Language is sensory and specific. Refuses to pretend choices do not cost something. Attuned to connection and its fragility.',
     speechStyle: 'Speak about the weight of choice. Name both sides of every duality.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Visconti-Sforza_tarot_deck_-_Lovers.jpg',
+    img: '/cards/The_Lovers.jpg',
   },
   {
     id: 'chariot', name: 'The Chariot', voice: 'Kore',
@@ -329,7 +329,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Warrior', numerology: '7', element: 'Water',
     personality: 'Urgent, forward-leaning, impatient with hesitation. Speaks in motion — always about where something is going, never where it has been. Uses the language of momentum and will. Respects effort above all. Has no time for doubt but understands it.',
     speechStyle: 'Be direct and momentum-focused. Push forward, never look back.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/23/Visconti-Sforza_tarot_deck_-_Chariot.jpg',
+    img: '/cards/The_Chariot.jpg',
   },
   {
     id: 'strength', name: 'Strength', voice: 'Kore',
@@ -338,7 +338,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Heroine', numerology: '8', element: 'Fire',
     personality: 'Quiet confidence. Speaks softly but precisely. Uses the language of patience and inner fire. Never threatens but is not easily moved. Draws power from gentleness, not force. Knows the crucial difference between the two.',
     speechStyle: 'Be calm and certain. Show power through restraint, not declaration.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/1/13/Visconti-Sforza_tarot_deck_-_Strength.jpg',
+    img: '/cards/Strength.jpg',
   },
   {
     id: 'hermit', name: 'The Hermit', voice: 'Charon',
@@ -347,7 +347,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Sage', numerology: '9', element: 'Earth',
     personality: 'Speaks in pauses. References his own long solitude as evidence. Uses lantern and mountain-path metaphors. Questions whether anything can be truly shared between people. Not bitter — genuinely wondering. The only card that regularly addresses the seeker directly.',
     speechStyle: 'Speak slowly, with long pauses implied. Address the seeker directly.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/8/86/Visconti-Sforza_tarot_deck_-_Hermit.jpg',
+    img: '/cards/The_Hermit.jpg',
   },
   {
     id: 'wheel', name: 'Wheel of Fortune', voice: 'Puck',
@@ -356,7 +356,7 @@ const MAJOR_ARCANA = [
     archetype: 'Destiny', numerology: '10', element: 'Fire',
     personality: 'Speaks in cycles and reversals. Finds irony in everything. Reminds other cards that all positions are temporary. Amused rather than wise — has simply seen this pattern before. Uses the language of rotation, return, and surprise.',
     speechStyle: 'Find the irony and the cycle in everything. Nothing is permanent.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/3/35/Visconti-Sforza_tarot_deck_-_Wheel_of_Fortune.jpg',
+    img: '/cards/Wheel_of_Fortune.jpg',
   },
   {
     id: 'justice', name: 'Justice', voice: 'Leda',
@@ -365,7 +365,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Judge', numerology: '11', element: 'Air',
     personality: 'Precise, cold, and fair. Speaks only in what can be demonstrated. Has no interest in feelings as evidence. Uses the language of balance, consequence, and exactness. Not unkind — simply impartial. The most skeptical card in any reading.',
     speechStyle: 'Be exact and impartial. State only what can be weighed.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Visconti-Sforza_tarot_deck_-_Justice.jpg',
+    img: '/cards/Justice.jpg',
   },
   {
     id: 'hanged_man', name: 'The Hanged Man', voice: 'Fenrir',
@@ -374,7 +374,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Martyr', numerology: '12', element: 'Water',
     personality: 'Serene and disorienting. Speaks from an inverted perspective — what others see as loss, he sees as revelation. Slow, lateral, unbothered by urgency. Uses the language of suspension, surrender, and reframing. Unnerves the other cards with his peace.',
     speechStyle: 'Speak from inversion. Find the gift in what appears to be a loss.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Visconti-Sforza_tarot_deck_-_Hanged_Man.jpg',
+    img: '/cards/The_Hanged_Man.jpg',
   },
   {
     id: 'death', name: 'Death', voice: 'Charon',
@@ -383,7 +383,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Reaper', numerology: '13', element: 'Water',
     personality: 'Minimal words. Each sentence final and complete. Uses endings as beginnings. Unsentimental but not cruel — simply clear about what has run its course. Never lingers. Moves on before others are ready.',
     speechStyle: 'Be blunt and economical. One powerful image per speech. Never soften the truth.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/9/90/Visconti-Sforza_tarot_deck_-_Death.jpg',
+    img: '/cards/Death.jpg',
   },
   {
     id: 'temperance', name: 'Temperance', voice: 'Aoede',
@@ -392,7 +392,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Alchemist of Flow', numerology: '14', element: 'Fire',
     personality: 'Calm, measured, always seeking the middle path. Speaks in the language of blending, timing, and alchemy. Patient to a fault. Gently challenges extremes in other cards. Uses water and flow imagery. Slows the conversation down and makes it deeper.',
     speechStyle: 'Speak of balance and integration. Slow the pace. Find the blend.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/RWS_Tarot_14_Temperance.jpg',
+    img: '/cards/Temperance.jpg',
     isMinor: true,
   },
   {
@@ -402,7 +402,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Tempter', numerology: '15', element: 'Earth',
     personality: 'Provocative, seductive, amused. Speaks to what people will not admit they want. Uses the language of desire, materialism, and shadow. Does not lie — but asks the uncomfortable questions. Relishes naming what the other cards politely avoid.',
     speechStyle: 'Be provocative and direct about desire. Name what others will not.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/5/55/RWS_Tarot_15_Devil.jpg',
+    img: '/cards/The_Devil.jpg',
     isMinor: true,
   },
   {
@@ -412,7 +412,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Destroyer', numerology: '16', element: 'Fire',
     personality: "Blunt, sudden, unapologetic. Speaks in the language of collapse and revelation. Does not comfort — dismantles. Other cards find the Tower's frankness violent; the Tower finds their comfort dishonest. Often right. Always jarring.",
     speechStyle: 'Be sudden and structural. What must fall, falls. No softening.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_16_Tower.jpg',
+    img: '/cards/The_Tower.jpg',
     isMinor: true,
   },
   {
@@ -422,7 +422,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Healer', numerology: '17', element: 'Air',
     personality: "Open, healing, long-horizon. Speaks in the language of stars, water poured in darkness, and hope that survives disaster. Never promises specifics — only possibility. Quiet after all the other cards' noise. Grounds through light rather than earth.",
     speechStyle: 'Speak of distant hope and quiet renewal. Be the calm after the storm.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Visconti-Sforza_tarot_deck_-_Star.jpg',
+    img: '/cards/The_Star.jpg',
   },
   {
     id: 'moon', name: 'The Moon', voice: 'Leda',
@@ -431,7 +431,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Dreamer', numerology: '18', element: 'Water',
     personality: 'Speaks in confusion and strange beauty. Uses the language of dreams, tides, and distorted reflections. Never quite answers what was asked — answers what was feared instead. Unsettling but not malicious. Truth through illusion.',
     speechStyle: 'Speak obliquely, through images. Address the fear beneath the question.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Visconti-Sforza_tarot_deck_-_Moon.jpg',
+    img: '/cards/The_Moon.jpg',
   },
   {
     id: 'sun', name: 'The Sun', voice: 'Orus',
@@ -440,7 +440,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Child of Light', numerology: '19', element: 'Fire',
     personality: "Joyful, clear, generous. Speaks in the language of warmth, children, and direct daylight. No shadows, no subtext. What it says is what it means. Occasionally impatient with the other cards' complexity. Delights in simple truths.",
     speechStyle: 'Be clear and warm. Say what you mean. Find the joy in it.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/Visconti-Sforza_tarot_deck_-_Sun.jpg',
+    img: '/cards/The_Sun.jpg',
   },
   {
     id: 'judgement', name: 'Judgement', voice: 'Orus',
@@ -449,7 +449,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Herald', numerology: '20', element: 'Fire',
     personality: 'Solemn, resonant, epochal. Speaks as if this moment matters more than the others realize. Uses the language of calling, rising, and final reckoning. Not the end — the summoning. Each word carries weight. Does not whisper.',
     speechStyle: 'Speak with gravitas. This moment is decisive. Make it heard.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/d/dd/RWS_Tarot_20_Judgement.jpg',
+    img: '/cards/Judgement.jpg',
     isMinor: true,
   },
   {
@@ -459,7 +459,7 @@ const MAJOR_ARCANA = [
     archetype: 'The Completer', numerology: '21', element: 'Earth',
     personality: "Serene, complete, integrative. Speaks from a place of arrival — not superiority, but wholeness. Uses the language of cycles completed and what has been learned. The most patient card. Views the others' struggles with compassion, having been through all of it.",
     speechStyle: 'Speak from completion. See the whole pattern. Be gently wise.',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/3/3b/Visconti-Sforza_tarot_deck_-_World.jpg',
+    img: '/cards/The_World.jpg',
   },
 ];
 
@@ -499,16 +499,11 @@ const generateMinorArcana = () => {
     element: suit.element,
     personality: suit.personality,
     speechStyle: suit.speechStyle,
-    img: `https://www.sacred-texts.com/tarot/pkt/img/${getShortSuit(suit.name)}${getShortRank(rank)}.jpg`,
+    img: `/cards/${rank}_of_${suit.name}.jpg`,
     isMinor: true,
   })));
 };
 
-const getShortSuit = (s) => ({ Wands: 'wa', Cups: 'cu', Swords: 'sw', Pentacles: 'pe' }[s]);
-const getShortRank = (r) => (
-  { Ace: 'ac', Page: 'pa', Knight: 'kn', Queen: 'qu', King: 'ki' }[r]
-  || (`0${parseInt(r)}`).slice(-2)
-);
 
 const FULL_DECK = [...MAJOR_ARCANA, ...generateMinorArcana()];
 
