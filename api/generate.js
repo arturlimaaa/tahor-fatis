@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
   const { prompt, systemInstruction, useJson } = req.body;
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
   
   const generationConfig = {
     temperature: 0.9,
